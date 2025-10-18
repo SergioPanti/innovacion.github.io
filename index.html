@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Completo de Innovación y Tecnología</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Palette: Stone (Neutrals), Teal (Primary), Red (Alert) -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc; 
+            color: #292524; /* Stone 800 */
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active {
+            border-color: #0d9488; /* Teal 600 */
+            color: #0d9488;
+            font-weight: 600;
+        }
+        .card-flip {
+            perspective: 1000px;
+            height: 100%;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-flip.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            border: 1px solid #e7e5e4;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: #f0fdfa; /* Teal 50 */
+        }
+        .quiz-option {
+            transition: background-color 0.2s, border-color 0.2s;
+            line-height: 1.5;
+            border: 1px solid #d6d3d1; /* Stone 300 */
+        }
+        .quiz-option.correct {
+            background-color: #d1fae5; /* Green 100 */
+            border-color: #10b981; /* Green 500 */
+            color: #065f46;
+            font-weight: 500;
+        }
+        .quiz-option.incorrect {
+            background-color: #fee2e2; /* Red 100 */
+            border-color: #ef4444; /* Red 500 */
+            color: #991b1b;
+            font-weight: 500;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navegación Fija -->
+    <header class="header-bg backdrop-blur-md shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <span class="text-3xl font-extrabold text-teal-600">💡</span>
+                    <h1 class="text-xl md:text-2xl font-bold text-stone-800">Plan: Introducción a la Innovación y Tecnología</h1>
+                </div>
+                <div class="flex space-x-3 sm:space-x-6">
+                    <a href="#sesion1" class="nav-link text-sm sm:text-base text-stone-600 hover:text-teal-600 pb-1">Tema 1</a>
+                    <a href="#sesion2" class="nav-link text-sm sm:text-base text-stone-600 hover:text-teal-600 pb-1">Tema 2</a>
+                    <a href="#sesion3" class="nav-link text-sm sm:text-base text-stone-600 hover:text-teal-600 pb-1">Tema 3</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+<!-- Sección de Presentación -->
+    <section class="presentation-bg h-[calc(100vh-50px)] min-h-[500px] flex items-center justify-center text-center p-4">
+        <div>
+            <div class="mb-8">
+                <img src="img/unid.png" width="450 em"  alt="" class="center mx-auto">
+                
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-800">
+                Materia: Innovación y Tecnología
+            </h1>
+            <p class="mt-4 text-lg sm:text-xl md:text-2xl text-stone-600">
+                Maestro: M.T.I Sergio Antonio Panti Salvador
+            </p>
+            <div class="mt-12 text-teal-600 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <!-- SESIÓN 1: ¿Qué es la innovación y por qué transforma todo? -->
+        <section id="sesion1" class="mb-24 scroll-mt-24 bg-white p-8 rounded-xl shadow-lg border border-stone-200">
+            <header class="text-center mb-10 border-b-4 border-teal-500 pb-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-800">🧠 Tema 1: ¿Qué es la innovación y por qué transforma todo?</h2>
+                <p class="mt-2 text-lg text-stone-600 max-w-4xl mx-auto">Objetivo: Comprender el concepto de innovación y las definiciones relacionadas para conocer las directrices que generan cambios y nuevos productos, servicios o procesos de trabajo.</p>
+            </header>
+            
+            <!-- 1. Conceptos clave -->
+            <h3 class="text-2xl font-bold mb-6 text-teal-700">🔍 1. Conceptos clave</h3>
+            
+            <!-- Invención vs. Innovación (Tarjetas Flip - Todo el texto incluido) -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12 h-64 sm:h-72">
+                
+                <!-- Invención -->
+                <div id="card-invencion" class="card-flip cursor-pointer">
+                    <div class="card-inner">
+                        <div class="card-front bg-stone-50 flex flex-col justify-center items-center p-6">
+                            <span class="text-5xl mb-3">🛠️</span>
+                            <h4 class="text-2xl font-bold text-stone-800">Invención</h4>
+                            <p class="mt-2 text-stone-600 text-sm">Haz clic para ver la definición completa.</p>
+                        </div>
+                        <div class="card-back flex flex-col justify-start items-center p-6">
+                            <h3 class="text-xl font-extrabold text-teal-800 mb-3">Invención (Novedad Absoluta)</h3>
+                            <p class="text-base text-stone-700 text-left w-full">Crear algo nuevo que nunca existió (ej: la primera bombilla). </p>
+                            <p class="mt-4 text-sm text-teal-600 font-semibold italic text-left w-full">Innovación NO es lo mismo que Invención.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innovación -->
+                <div id="card-innovacion" class="card-flip cursor-pointer">
+                    <div class="card-inner">
+                        <div class="card-front bg-stone-50 flex flex-col justify-center items-center p-6">
+                            <span class="text-5xl mb-3">📈</span>
+                            <h4 class="text-2xl font-bold text-stone-800">Innovación</h4>
+                            <p class="mt-2 text-stone-600 text-sm">Haz clic para ver la definición completa.</p>
+                        </div>
+                        <div class="card-back flex flex-col justify-start items-center p-6">
+                            <h4 class="text-xl font-extrabold text-teal-800 mb-2">Innovación (Éxito y Adopción)</h4>
+                            <p class="text-base text-stone-700 text-left w-full">Aplicar con éxito una idea (nueva o no) para <strong>generar valor</strong>. Puede ser un producto, servicio, proceso o modelo de negocio. La clave está en el <strong>éxito y la adopción</strong>.</p>
+                            <p class="mt-4 text-sm text-teal-600 font-semibold italic text-left w-full">Innovar no es solo inventar; también es <strong>mejorar algo existente</strong> de forma que aporte valor. Ocurre cuando una idea se convierte en un <strong>resultado útil</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dimensiones de la Organización donde actúa la Innovación -->
+            <h4 class="text-xl font-bold mb-4 text-stone-700 border-l-4 border-teal-500 pl-3">Dimensiones de la Organización donde actúa la Innovación:</h4>
+            <div class="grid sm:grid-cols-3 gap-6 mb-12">
+                <div class="bg-teal-50 p-6 rounded-lg shadow-sm border border-teal-200">
+                    <div class="text-3xl mb-2">📱</div>
+                    <h5 class="font-bold text-lg text-teal-800">Producto/Servicio</h5>
+                    <p class="text-sm text-stone-700">Lo que vendes (ej: un nuevo modelo de smartphone).</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg shadow-sm border border-teal-200">
+                    <div class="text-3xl mb-2">⚙️</div>
+                    <h5 class="font-bold text-lg text-teal-800">Proceso</h5>
+                    <p class="text-sm text-stone-700">Cómo lo haces (ej: una nueva línea de ensamblaje más rápida).</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg shadow-sm border border-teal-200">
+                    <div class="text-3xl mb-2">💼</div>
+                    <h5 class="font-bold text-lg text-teal-800">Modelo de Negocio</h5>
+                    <p class="text-sm text-stone-700">Cómo ganas dinero (ej: Netflix cambiando de venta de DVDs a streaming por suscripción).</p>
+                </div>
+            </div>
+            
+            <!-- 2. Ideas clave (en lenguaje claro) -->
+            <h3 class="text-2xl font-bold mb-4 text-teal-700">🔍 2. Ideas clave</h3>
+            <ul class="list-disc ml-6 space-y-2 text-stone-700 mb-8">
+                <li><strong>No toda creatividad es innovación</strong>: la creatividad genera ideas; la innovación las <strong>pone en práctica</strong>.</li>
+                <li>La innovación resuelve problemas o satisface necesidades.</li>
+                <li>La <strong>tecnología</strong> es una herramienta para la innovación, pero no la única fuente de ella.</li>
+                <li>La innovación puede venir de <strong>cualquier nivel de la empresa</strong>, no solo de los directivos.</li>
+                <li>No requiere ser algo totalmente nuevo para el mundo; puede ser nuevo para tu empresa o mercado.</li>
+                <li>El valor puede ser económico, social, de experiencia de usuario, etc.</li>
+            </ul>
+
+            <!-- Ejemplos Reales -->
+            <h3 class="text-2xl font-bold mb-4 text-teal-700">💡 Ejemplos reales</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-stone-50 p-4 rounded-lg border border-stone-200">
+                    <h5 class="font-bold text-stone-800">Netflix</h5>
+                    <p class="text-sm text-stone-600">Pasó de enviar DVDs a ofrecer streaming. <strong>Cambió la forma de consumirlo</strong> (Modelo de Negocio).</p>
+                </div>
+                <div class="bg-stone-50 p-4 rounded-lg border border-stone-200">
+                    <h5 class="font-bold text-stone-800">LEGO</h5>
+                    <p class="text-sm text-stone-600">Reinvetó su modelo creando videojuegos y películas, combinando creatividad y tecnología (Producto/Servicio y Modelo de Negocio).</p>
+                </div>
+                <div class="bg-stone-50 p-4 rounded-lg border border-stone-200">
+                    <h5 class="font-bold text-stone-800">Café local</h5>
+                    <p class="text-sm text-stone-600">Añade una app de pedidos anticipados → mejora el servicio, fideliza clientes (Servicio/Proceso).</p>
+                </div>
+                <div class="bg-stone-50 p-4 rounded-lg border border-stone-200">
+                    <h5 class="font-bold text-stone-800">Apple con el iPhone</h5>
+                    <p class="text-sm text-stone-600">No inventó la pantalla táctil, pero la aplicó de una manera <strong>exitosa y disruptiva</strong>, combinando diseño y una interfaz intuitiva (Producto).</p>
+                </div>
+            </div>
+
+            <!-- Cuestionario Rápido Sesión 1 -->
+            <div class="bg-stone-100 p-6 rounded-lg shadow-inner border border-stone-300 mb-8">
+                <h3 class="text-xl font-bold mb-4 text-center text-teal-700">🧩 Preguntas tipo test (Sesión 1)</h3>
+                <div class="quiz-container max-w-2xl mx-auto space-y-4">
+                    <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">1. La innovación se da cuando:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="1" data-answer="b">b) Una idea se aplica y genera valor.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="1" data-answer="a">a) Se crea una idea nueva.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="1" data-answer="c">c) Se lanza un producto sin cambios.</button>
+                        </div>
+                    </div>
+                    <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">2. La creatividad y la innovación son lo mismo.</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="2" data-answer="b">b) Falso</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="2" data-answer="a">a) Verdadero</button>
+                        </div>
+                    </div>
+                     <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">3. Netflix es un ejemplo de innovación porque:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="3" data-answer="a">a) Cambió la forma de distribución de contenido.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="3" data-answer="b">b) Inventó el cine.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="3" data-answer="c">c) Solo copió a otros.</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio Colectivo Sesión 1 -->
+            <div class="bg-teal-50 p-6 rounded-lg border border-teal-300">
+                <h3 class="text-xl font-bold mb-3 text-teal-800">🤝 Ejercicio colectivo (equipos de 4): “Cazadores de innovación”</h3>
+                <p class="text-stone-700 mb-3">Cada equipo elige una empresa u organización y <strong>investiga una innovación</strong> que haya transformado su producto o servicio. Deben responder:</p>
+                <ul class="list-disc ml-6 space-y-1 text-stone-600 text-sm">
+                    <li>¿Qué problema existía antes?</li>
+                    <li>¿Qué cambió gracias a la innovación?</li>
+                    <li>¿Cómo benefició al cliente o al negocio?</li>
+                </ul>
+                <p class="mt-3 text-sm font-semibold text-teal-600">Presentación: 3 minutos por caso al grupo.</p>
+            </div>
+        </section>
+
+        <!-- SESIÓN 2: Tipos de innovación: no todo cambio es igual -->
+        <section id="sesion2" class="mb-24 scroll-mt-24 bg-white p-8 rounded-xl shadow-lg border border-stone-200">
+            <header class="text-center mb-10 border-b-4 border-teal-500 pb-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-800">🚀 Tema 2: Tipos de innovación: no todo cambio es igual</h2>
+                <p class="mt-2 text-lg text-stone-600 max-w-4xl mx-auto">Objetivo: Analizar la clasificación de los tipos de innovación para conocer sus características y cómo aplicarlas en una empresa.</p>
+            </header>
+
+            <!-- 1. Clasificación por Área de Cambio (Tabla Interactiva/Gráfico) -->
+            <h3 class="text-2xl font-bold mb-6 text-teal-700">🔍 1. Tipos de innovación según qué cambia en la organización</h3>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-12 items-start">
+                 <!-- Gráfico de Dona: Clasificación por área -->
+                 <div class="bg-stone-50 p-6 rounded-lg shadow-md border border-stone-200">
+                    <h4 class="font-bold text-xl text-teal-800 mb-2">Clasificación por Área</h4>
+                    <p class="text-stone-600 mb-4 text-sm">Pasa el cursor sobre el gráfico para ver detalles de cada tipo (El tamaño es solo representativo de la variedad).</p>
+                    <div class="chart-container">
+                        <canvas id="innovationTypesChart"></canvas>
+                    </div>
+                    <div id="chart-info" class="mt-4 p-4 bg-white rounded-lg min-h-[80px] text-center flex items-center justify-center border border-stone-300">
+                        <p class="text-stone-600 text-sm">Pasa el cursor sobre una sección para ver detalles.</p>
+                    </div>
+                </div>
+
+                <!-- Detalles de la Clasificación -->
+                <div class="space-y-3">
+                    <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                        <h5 class="font-bold text-teal-800">Producto</h5>
+                        <p class="text-sm text-stone-700">Crear o mejorar algo que se ofrece. (Ej: iPhone → teléfonos con pantalla táctil).</p>
+                    </div>
+                    <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                        <h5 class="font-bold text-teal-800">Proceso</h5>
+                        <p class="text-sm text-stone-700">Cambiar la forma de hacer algo. (Ej: Amazon → robots en almacenes; Mercado Libre con Mercado Envíos).</p>
+                    </div>
+                    <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                        <h5 class="font-bold text-teal-800">Organizacional</h5>
+                        <p class="text-sm text-stone-700">Cambios en la estructura o cultura. (Ej: Google → equipos ágiles y autónomos; un nuevo método de trabajo colaborativo).</p>
+                    </div>
+                    <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                        <h5 class="font-bold text-teal-800">De marketing</h5>
+                        <p class="text-sm text-stone-700">Nuevas formas de vender o posicionar. (Ej: Coca-Cola → campañas personalizadas).</p>
+                    </div>
+                    <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                        <h5 class="font-bold text-teal-800">Social o sostenible</h5>
+                        <p class="text-sm text-stone-700">Busca impacto positivo en la sociedad. (Ej: Tesla → movilidad eléctrica; uso de materiales reciclados).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Otra Forma de Clasificar (Por Impacto) -->
+            <h3 class="text-2xl font-bold mb-4 text-teal-700">🔍 2. Clasificación por Impacto (Incremental vs. Radical)</h3>
+            <div class="flex justify-center mb-6">
+                <div class="bg-stone-200 p-1 rounded-full flex items-center shadow-md">
+                     <button id="btn-incremental" class="impact-btn bg-teal-600 text-white px-6 py-2 rounded-full font-semibold text-sm sm:text-base transition duration-300">Incremental</button>
+                     <button id="btn-radical" class="impact-btn text-stone-700 px-6 py-2 rounded-full font-semibold text-sm sm:text-base transition duration-300">Radical / Disruptiva</button>
+                </div>
+            </div>
+            <div id="impact-content" class="min-h-[250px] p-6 border border-teal-300 rounded-xl bg-teal-50 transition-all duration-300">
+                <!-- Content injected by JS -->
+            </div>
+            
+            <!-- Clave Práctica -->
+            <div class="bg-red-50 p-4 rounded-lg border border-red-300 mt-8">
+                <h4 class="font-bold text-red-700">💡 Clave práctica:</h4>
+                <p class="text-sm text-stone-700">Innovar no siempre requiere alta tecnología: a veces basta con <strong>escuchar al cliente<strong> o </strong>ajustar un proceso</strong>.</p>
+            </div>
+
+            <!-- Cuestionario Rápido Sesión 2 -->
+            <div class="bg-stone-100 p-6 rounded-lg shadow-inner border border-stone-300 mt-10 mb-8">
+                <h3 class="text-xl font-bold mb-4 text-center text-teal-700">🧩 Preguntas tipo test (Sesión 2)</h3>
+                <div class="quiz-container max-w-2xl mx-auto space-y-4">
+                    <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">1. La innovación de proceso busca:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="4" data-answer="b">b) Mejorar la forma de producir o trabajar.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="4" data-answer="a">a) Nuevas formas de vender.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="4" data-answer="c">c) Cambiar la estructura organizacional.</button>
+                        </div>
+                    </div>
+                    <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">2. Una innovación social busca:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="5" data-answer="b">b) Impactar positivamente en la sociedad.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="5" data-answer="a">a) Maximizar ganancias.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="5" data-answer="c">c) Crear productos de lujo.</button>
+                        </div>
+                    </div>
+                     <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">3. ¿Cuál es ejemplo de innovación organizacional?</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="6" data-answer="b">b) Un nuevo método de trabajo colaborativo.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="6" data-answer="a">a) Un nuevo empaque.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="6" data-answer="c">c) Un nuevo producto.</button>
+                        </div>
+                    </div>
+                    <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">4. Una empresa de zapatos deportivos lanza un nuevo modelo que utiliza un material reciclado que reduce el peso del zapato en un 5%. Esto es un claro ejemplo de:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="7" data-answer="c">c) Innovación Incremental.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="7" data-answer="a">a) Innovación Radical.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="7" data-answer="b">b) Innovación en el Modelo de Negocio.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="7" data-answer="d">d) Innovación Disruptiva.</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio Colectivo Sesión 2 -->
+            <div class="bg-teal-50 p-6 rounded-lg border border-teal-300">
+                <h3 class="text-xl font-bold mb-3 text-teal-800">🤝 Ejercicio colectivo (equipos de 4): “Radar de innovación”</h3>
+                <p class="text-stone-700 mb-3">Cada equipo elige una <strong>empresa conocida de Campeche</strong> y deben <strong>identificar al menos 2 tipos de innovación</strong> que podrían aplicar. Ejemplo:</p>
+                <ul class="list-disc ml-6 space-y-1 text-stone-600 text-sm">
+                    <li>Restaurante → innovación de proceso (pedidos por QR).</li>
+                    <li>Tienda de ropa → innovación de marketing (venta en redes sociales).</li>
+                </ul>
+                <p class="mt-3 text-sm font-semibold text-teal-600">Presentación: Con un esquema visual (puede ser en papel o diapositiva).</p>
+            </div>
+        </section>
+
+        <!-- SESIÓN 3: Estrategias y objetivos de la innovación, ¿Por Qué Innovamos? -->
+        <section id="sesion3" class="scroll-mt-24 bg-white p-8 rounded-xl shadow-lg border border-stone-200">
+            <header class="text-center mb-10 border-b-4 border-teal-500 pb-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-800">🎯 Tema 3: Estrategias y objetivos de la innovación, ¿Por Qué Innovamos?</h2>
+                <p class="mt-2 text-lg text-stone-600 max-w-4xl mx-auto">Objetivo: Analizar los objetivos sobre los cuales una organización puede guiar sus estrategias de innovación y definir los procesos necesarios para su desarrollo e implementación.</p>
+            </header>
+            
+            <!-- 1. Conceptos Clave -->
+            <h3 class="text-2xl font-bold mb-6 text-teal-700">🔍 1. Conceptos Clave</h3>
+            <p class="text-stone-700 mb-6">Innovar sin un rumbo es como navegar sin mapa. La estrategia responde a la pregunta: <strong>¿Para qué innovamos?</strong></p>
+
+            <!-- Objetivos Estratégicos Comunes -->
+            <h4 class="text-xl font-bold mb-4 text-stone-700 border-l-4 border-teal-500 pl-3">Objetivos Estratégicos Comunes:</h4>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-teal-50 p-6 rounded-lg shadow-sm border border-teal-200 hover:shadow-xl transition duration-300">
+                    <div class="text-4xl mb-3">💰</div>
+                    <h5 class="font-bold text-lg text-teal-800">Liderazgo en Costos</h5>
+                    <p class="text-sm text-stone-700">Innovar para ser más baratos que la competencia (normalmente con innovación en <strong>procesos</strong>).</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg shadow-sm border border-teal-200 hover:shadow-xl transition duration-300">
+                    <div class="text-4xl mb-3">✨</div>
+                    <h5 class="font-bold text-lg text-teal-800">Diferenciación</h5>
+                    <p class="text-sm text-stone-700">Innovar para ser únicos y que el cliente nos elija (normalmente con innovación en <strong>producto</strong> o <strong>servicio</strong>).</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg shadow-sm border border-teal-200 hover:shadow-xl transition duration-300">
+                    <div class="text-4xl mb-3">🎯</div>
+                    <h5 class="font-bold text-lg text-teal-800">Enfoque</h5>
+                    <p class="text-sm text-stone-700">Innovar para servir a un <strong>nicho de mercado</strong> específico mejor que nadie.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg shadow-sm border border-teal-200 hover:shadow-xl transition duration-300">
+                    <div class="text-4xl mb-3">🛡️</div>
+                    <h5 class="font-bold text-lg text-teal-800">Adaptación y Supervivencia</h5>
+                    <p class="text-sm text-stone-700">Innovar para no quedarse obsoleto (ej: los taxis tradicionales frente a Uber).</p>
+                </div>
+            </div>
+            
+            <!-- 2. Ideas clave y Pasos Básicos -->
+            <h3 class="text-2xl font-bold mb-4 text-teal-700">🔍 2. Ideas clave y Pasos básicos</h3>
+            <ul class="list-disc ml-6 space-y-2 text-stone-700 mb-8">
+                <li>La <strong>estrategia de innovación</strong> da dirección: define <strong>por qué</strong> y <strong>para qué</strong> innovar.</li>
+                <li>Los <strong>objetivos de innovación</strong> deben alinearse con los <strong>objetivos del negocio</strong>.</li>
+                <li>Innovar sin propósito = gastar sin resultados.</li>
+            </ul>
+
+            <!-- Pasos Básicos de la Estrategia (Diagrama) -->
+            <h4 class="text-xl font-bold mb-4 text-stone-700 border-l-4 border-teal-500 pl-3">Pasos básicos de la Estrategia:</h4>
+            <div class="bg-stone-100 p-6 rounded-lg shadow-inner border border-stone-300 overflow-x-auto">
+                <div class="flex flex-col md:flex-row justify-between items-stretch space-y-4 md:space-y-0 md:space-x-4 min-w-max">
+                    
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="bg-teal-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold mb-2 flex-shrink-0 text-sm">1</div>
+                        <div class="p-3 bg-white rounded-lg border border-teal-500 h-full w-full">
+                            <h5 class="font-bold text-stone-800 text-sm">Detectar oportunidades</h5>
+                            <p class="text-xs text-stone-600">Problemas, tendencias, necesidades del cliente.</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center text-teal-600 text-3xl font-extrabold flex-shrink-0">→</div>
+
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="bg-teal-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold mb-2 flex-shrink-0 text-sm">2</div>
+                        <div class="p-3 bg-white rounded-lg border border-teal-500 h-full w-full">
+                            <h5 class="font-bold text-stone-800 text-sm">Definir metas claras</h5>
+                            <p class="text-xs text-stone-600">Reducir costos, mejorar experiencia, aumentar ventas.</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center text-teal-600 text-3xl font-extrabold flex-shrink-0">→</div>
+                    
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="bg-teal-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold mb-2 flex-shrink-0 text-sm">3</div>
+                        <div class="p-3 bg-white rounded-lg border border-teal-500 h-full w-full">
+                            <h5 class="font-bold text-stone-800 text-sm">Diseñar procesos</h5>
+                            <p class="text-xs text-stone-600">Evaluar ideas, probar prototipos, implementar.</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center text-teal-600 text-3xl font-extrabold flex-shrink-0">→</div>
+                    
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="bg-teal-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold mb-2 flex-shrink-0 text-sm">4</div>
+                        <div class="p-3 bg-white rounded-lg border border-teal-500 h-full w-full">
+                            <h5 class="font-bold text-stone-800 text-sm">Medir resultados</h5>
+                            <p class="text-xs text-stone-600">Indicadores de impacto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ejemplo Real -->
+            <div class="bg-stone-50 p-4 rounded-lg border border-stone-200 mt-8">
+                <h4 class="font-bold text-stone-800">💡 Ejemplo real (Airbnb):</h4>
+                <p class="text-sm text-stone-600">Identificó la oportunidad (personas con habitaciones libres), definió su meta (crear confianza entre anfitriones y viajeros), y construyó un proceso digital seguro.</p>
+            </div>
+
+
+            <!-- Cuestionario Rápido Sesión 3 -->
+            <div class="bg-stone-100 p-6 rounded-lg shadow-inner border border-stone-300 mt-10 mb-8">
+                <h3 class="text-xl font-bold mb-4 text-center text-teal-700">🧩 Preguntas tipo test (Sesión 3)</h3>
+                <div class="quiz-container max-w-2xl mx-auto space-y-4">
+                    <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">1. El primer paso para una estrategia de innovación es:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="8" data-answer="b">b) Detectar oportunidades o necesidades.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="8" data-answer="a">a) Probar ideas al azar.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="8" data-answer="c">c) Comprar nueva tecnología.</button>
+                        </div>
+                    </div>
+                    <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">2. Los objetivos de innovación deben:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="9" data-answer="b">b) Estar alineados con los objetivos organizacionales.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="9" data-answer="a">a) Ser independientes de la estrategia del negocio.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="9" data-answer="c">c) Cambiar cada semana.</button>
+                        </div>
+                    </div>
+                     <div class="quiz-item">
+                        <p class="font-semibold text-stone-700 mb-2">3. Medir los resultados de una innovación permite:</p>
+                        <div class="space-y-2">
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="10" data-answer="a">a) Justificar la inversión y aprender para mejorar.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="10" data-answer="b">b) Evitar futuras innovaciones.</button>
+                            <button class="quiz-option text-left w-full p-3 rounded-lg hover:bg-stone-200" data-quiz="10" data-answer="c">c) No tener que rendir cuentas.</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio Colectivo Sesión 3 -->
+            <div class="bg-teal-50 p-6 rounded-lg border border-teal-300">
+                <h3 class="text-xl font-bold mb-3 text-teal-800">🤝 Ejercicio colectivo (equipos de 4): “Mini estrategia de innovación”</h3>
+                <p class="text-stone-700 mb-3">Cada equipo elige una <strong>empresa o problema real</strong> y define:</p>
+                <ul class="list-disc ml-6 space-y-1 text-stone-600 text-sm">
+                    <li>Un <strong>objetivo de innovación</strong> (por ejemplo, mejorar experiencia del cliente).</li>
+                    <li>Un <strong>tipo de innovación</strong> a aplicar.</li>
+                    <li>Un<strong>proceso</strong> para implementarla.</li>
+                </ul>
+                <p class="mt-3 text-sm font-semibold text-teal-600">Presentación: 5 minutos por caso al grupo.</p>
+            </div>
+        </section>
+
+
+        <!-- EVALUACIÓN GENERAL SUGERIDA -->
+        <section id="evaluacion" class="mt-20 py-10 border-t-4 border-stone-300">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-stone-800 mb-4">📘 Evaluación general</h2>
+                <p class="text-lg text-stone-600 max-w-3xl mx-auto mb-8">Ponderación de los componentes del aprendizaje.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md border border-teal-200 text-center">
+                    <h4 class="font-bold text-2xl text-teal-700 mb-2">Participación en ejercicios grupales</h4>
+                    <p class="text-5xl font-extrabold text-teal-600">20%</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border border-teal-200 text-center">
+                    <h4 class="font-bold text-2xl text-teal-700 mb-2">Actividades de plataforma</h4>
+                    <p class="text-5xl font-extrabold text-teal-600">80%</p>
+                </div>
+            </div>
+            <p class="text-center text-stone-500 mt-4 text-sm">*La comprensión conceptual se evalúa a través de los debates y tests de cada sesión.</p>
+        </section>
+
+    </main>
+    
+    <footer class="bg-stone-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p class="font-semibold text-lg">La innovación es la aplicación exitosa de ideas que generan valor.</p>
+            <p class="text-stone-400 mt-1 text-sm">Contenido basado integralmente en el "Plan de Aprendizaje: Introducción a la Innovación y Tecnología" </p>
+            <p class="text-stone-400 mt-1 text-sm"> de M.T.I. Sergio A. Panti</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+
+            // 1. Navegación Activa (Scroll Spy)
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.3 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            sections.forEach(section => { observer.observe(section); });
+
+
+            // 2. Tarjetas Flip (Invención vs. Innovación)
+            document.getElementById('card-invencion').addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+            document.getElementById('card-innovacion').addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+
+
+            // 3. Cuestionarios Tipo Test
+            const quizAnswers = {
+                // Sesión 1
+                '1': 'b', '2': 'b', '3': 'a', 
+                // Sesión 2
+                '4': 'b', '5': 'b', '6': 'b', '7': 'c', 
+                // Sesión 3 (Los quiz IDs continuan el conteo)
+                '8': 'b', '9': 'b', '10': 'a'  
+            };
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            quizOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const quizId = option.dataset.quiz;
+                    const selectedAnswer = option.dataset.answer;
+                    const parentItem = option.closest('.quiz-item');
+                    const allOptions = parentItem.querySelectorAll('.quiz-option');
+
+                    // Deshabilitar todas las opciones del quiz y limpiar
+                    allOptions.forEach(opt => {
+                        opt.classList.remove('correct', 'incorrect');
+                        opt.disabled = true; 
+                    });
+
+                    if (selectedAnswer === quizAnswers[quizId]) {
+                        option.classList.add('correct');
+                    } else {
+                        option.classList.add('incorrect');
+                        // Mostrar la respuesta correcta
+                        const correctAnswer = parentItem.querySelector(`[data-answer="${quizAnswers[quizId]}"]`);
+                        if (correctAnswer) correctAnswer.classList.add('correct');
+                    }
+                });
+            });
+
+            // 4. Gráfico de Dona (Clasificación por área)
+            const chartData = {
+                labels: ['Producto', 'Proceso', 'Organizacional', 'Marketing', 'Social/Sostenible'],
+                datasets: [{
+                    data: [20, 20, 20, 20, 20], 
+                    backgroundColor: ['#0d9488', '#f97316', '#3b82f6', '#ec4899', '#84cc16'],
+                    hoverOffset: 12,
+                    borderWidth: 0
+                }]
+            };
+            
+            const chartInfoContent = {
+                'Producto': { title: 'Producto', text: 'Crear o mejorar algo que se ofrece. (Ej: iPhone).' },
+                'Proceso': { title: 'Proceso', text: 'Cambiar la forma de hacer algo. (Ej: robots en almacenes, Mercado Envíos).' },
+                'Organizacional': { title: 'Organizacional', text: 'Cambios en la estructura o cultura. (Ej: equipos ágiles y autónomos).' },
+                'Marketing': { title: 'De marketing', text: 'Nuevas formas de vender o posicionar. (Ej: campañas personalizadas).' },
+                'Social/Sostenible': { title: 'Social o Sostenible', text: 'Busca impacto positivo en la sociedad. (Ej: movilidad eléctrica).' }
+            };
+
+            const chartInfoDiv = document.getElementById('chart-info');
+            const ctx = document.getElementById('innovationTypesChart').getContext('2d');
+            
+            // Inicialización de Chart.js
+            const myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#44403c' } },
+                        tooltip: { enabled: false } // Deshabilitar tooltip nativo para usar hover
+                    },
+                    onHover: (event, chartElement) => {
+                        event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                        if (chartElement.length > 0) {
+                            const index = chartElement[0].index;
+                            const label = chartData.labels[index];
+                            const content = chartInfoContent[label];
+                            chartInfoDiv.innerHTML = `<div class="text-center"><h5 class="font-bold text-lg text-teal-800">${content.title}</h5><p class="text-sm mt-1 text-stone-700">${content.text}</p></div>`;
+                        } else {
+                             chartInfoDiv.innerHTML = `<p class="text-stone-600 text-sm">Pasa el cursor sobre una sección para ver detalles.</p>`;
+                        }
+                    }
+                }
+            });
+
+            // 5. Toggle Incremental vs. Radical
+            const btnIncremental = document.getElementById('btn-incremental');
+            const btnRadical = document.getElementById('btn-radical');
+            const impactContent = document.getElementById('impact-content');
+            
+            const contentIncremental = `
+                <h4 class="text-xl font-bold text-stone-800 mb-2">Innovación Incremental</h4>
+                <p class="text-stone-600 mb-4">Son <strong>mejoras pequeñas y continuas</strong> a lo que ya existe. <strong>No cambia las reglas del juego</strong>, pero mantiene a la empresa competitiva.</p>
+                <div class="bg-white p-3 rounded-lg border border-stone-200">
+                    <p class="font-semibold text-teal-700">Ejemplo:</p>
+                    <p class="text-sm text-stone-700">La nueva versión de un automóvil con mejor eficiencia de combustible o una pantalla más grande. (Ejemplo real: Coca-Cola con nuevas versiones como "Zero Sugar").</p>
+                </div>`;
+            
+            const contentRadical = `
+                <h4 class="text-xl font-bold text-stone-800 mb-2">Innovación Radical / Disruptiva</h4>
+                <p class="text-stone-600 mb-4"><strong>Crea un nuevo mercado o altera por completo uno existente</strong>. Suele venir de nuevas tecnologías o modelos de negocio y puede hacer obsoletos a los líderes del mercado.</p>
+                <div class="bg-white p-3 rounded-lg border border-stone-200">
+                    <p class="font-semibold text-teal-700">Ejemplo:</p>
+                    <p class="text-sm text-stone-700">Los teléfonos inteligentes (disruptivos con respecto a los celulares básicos) o Spotify (cambió la industria musical al ofrecer suscripción, modelo de negocio disruptivo).</p>
+                </div>`;
+                
+            // Inicializar con Incremental
+            impactContent.innerHTML = contentIncremental;
+
+            btnIncremental.addEventListener('click', () => {
+                impactContent.innerHTML = contentIncremental;
+                impactContent.classList.remove('bg-teal-100');
+                impactContent.classList.add('bg-teal-50');
+                btnIncremental.classList.add('bg-teal-600', 'text-white');
+                btnRadical.classList.remove('bg-teal-600', 'text-white');
+            });
+            
+            btnRadical.addEventListener('click', () => {
+                impactContent.innerHTML = contentRadical;
+                impactContent.classList.remove('bg-teal-50');
+                impactContent.classList.add('bg-teal-100');
+                btnRadical.classList.add('bg-teal-600', 'text-white');
+                btnIncremental.classList.remove('bg-teal-600', 'text-white');
+            });
+        });
+    </script>
+</body>
+</html>
